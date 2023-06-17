@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Navigasi } from '../Navbar'
 
 const Main = () => {
   const [patients, setPatient] = useState([])
@@ -30,6 +31,7 @@ const Main = () => {
 
   return (
     <Container>
+      <Navigasi />
       <Row className='justify-content-md-center'>
         <Col md={12}>
           <Link to='/input' className='btn btn-success mt-5'>
