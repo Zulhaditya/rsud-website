@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
   const [patients, setPatient] = useState([])
@@ -18,11 +19,23 @@ const Main = () => {
     setPatient(response.data)
   }
 
+  const deletePatient = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8080/patients/${id}`)
+      getPatients()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Container>
       <Row className='justify-content-md-center'>
         <Col md={12}>
-          <Table size='md' className='mt-5 text-center'>
+          <Link to='/input' className='btn btn-success mt-5'>
+            Tambah Pasien
+          </Link>
+          <Table size='md' className='mt-2 text-center'>
             <thead className='table-dark'>
               <tr>
                 <th>No</th>
@@ -48,10 +61,20 @@ const Main = () => {
                   <td>{patient.klinik}</td>
                   <td>{patient.kunjungan}</td>
                   <td>
-                    <Button variant='primary' size='sm'>
+                    <Link
+                      to={`/edit/${patient._id}`}
+                      className='btn btn-primary'
+                      variant='primary'
+                      size='sm'
+                    >
                       Edit
-                    </Button>
-                    <Button variant='danger' size='sm'>
+                    </Link>
+                    <Button
+                      variant='danger'
+                      size='sm'
+                      className='btn btn-danger'
+                      onClick={() => deletePatient(patient._id)}
+                    >
                       Hapus
                     </Button>
                   </td>
