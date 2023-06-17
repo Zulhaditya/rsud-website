@@ -1,0 +1,36 @@
+GET http://localhost:8080/patients
+
+###
+GET http://localhost:8080/patients/648c950b4d2e2aa734978bbe
+
+
+###
+POST http://localhost:8080/patients
+Content-Type: application/json
+
+{
+	"rm" : 123456789,
+	"nik" : 3333333,
+	"nama": "Inayah",
+	"gender": "P",
+	"jaminan": "BRI",
+	"klinik": "Jaya Raya",
+	"kunjungan": "Online"
+}
+
+###
+PATCH http://localhost:8080/patients/648d71596cc51ef51a3b14fc
+Content-Type: application/json
+
+{
+	"rm" : 123456,
+	"nik" : 351808641003011,
+	"nama": "Inayah Wulandari",
+	"gender": "P",
+	"jaminan": "Jasa Raharja",
+	"klinik": "Jaya Sahaja",
+	"kunjungan": "Online"
+}
+
+###
+DELETE http://localhost:8080/patients/648c948a4d2e2aa734978bb7
