@@ -12,7 +12,7 @@ const AddPatient = () => {
   const [rm, setRm] = useState('')
   const [nik, setNik] = useState('')
   const [nama, setNama] = useState('')
-  const [gender, setGender] = useState('M')
+  const [gender, setGender] = useState('')
   const [klinik, setKlinik] = useState('')
   const [jaminan, setJaminan] = useState('')
   const [kunjungan, setKunjungan] = useState('')
@@ -42,7 +42,7 @@ const AddPatient = () => {
         <Col md={7}>
           <Form onSubmit={savePatient}>
             <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+              <Form.Label column sm={2} className='text-end'>
                 No RM
               </Form.Label>
               <Col>
@@ -56,7 +56,7 @@ const AddPatient = () => {
               </Col>
             </Form.Group>
             <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+              <Form.Label column sm={2} className='text-end'>
                 NIK
               </Form.Label>
               <Col>
@@ -68,21 +68,21 @@ const AddPatient = () => {
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2} className='text-end'>
                 Nama
               </Form.Label>
               <Col>
                 <Form.Control
                   type='text'
-                  placeholder='Masukkan Nama'
+                  placeholder='Masukkan nama'
                   value={nama}
                   onChange={(e) => setNama(e.target.value)}
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+            <Form.Group as={Row} className='mb-2'>
+              <Form.Label column sm={2} className='text-end g-1 pt-3'>
                 Jenis Kelamin
               </Form.Label>
               <Col>
@@ -92,14 +92,134 @@ const AddPatient = () => {
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 >
-                  <option>Pilih Jenis Kelamin</option>
-                  <option value='M'>Pria</option>
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
+                  <option value='P'>Wanita</option>
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2} className='text-end'>
+                Tempat Lahir
+              </Form.Label>
+              <Col>
+                <Form.Control
+                  type='text'
+                  placeholder='Masukkan tempat lahir'
+                  value={klinik}
+                  onChange={(e) => setKlinik(e.target.value)}
+                />
+              </Col>
+              <Form.Label column sm={2} className='text-end'>
+                Tanggal Lahir
+              </Form.Label>
+              <Col>
+                <Form.Control
+                  type='text'
+                  placeholder='DD/MM/YYYY'
+                  value={klinik}
+                  onChange={(e) => setKlinik(e.target.value)}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className='mb-3'>
+              <Form.Label column sm={2} className='text-end'>
+                Agama
+              </Form.Label>
+              <Col>
+                <Form.Select
+                  aria-label='Pilih Jenis Kelamin'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
                   <option value='P'>Wanita</option>
                 </Form.Select>
               </Col>
             </Form.Group>
             <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+              <Form.Label column sm={2} className='text-end'>
+                Pendidikan
+              </Form.Label>
+              <Col>
+                <Form.Select
+                  aria-label='Pilih Jenis Kelamin'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
+                  <option value='P'>Wanita</option>
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className='mb-3'>
+              <Form.Label column sm={2} className='text-end'>
+                Pekerjaan
+              </Form.Label>
+              <Col>
+                <Form.Select
+                  aria-label='Pilih Jenis Kelamin'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
+                  <option value='P'>Wanita</option>
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className='mb-3'>
+              <Form.Label column sm={2} className='text-end'>
+                Golongan Darah
+              </Form.Label>
+              <Col>
+                <Form.Select
+                  aria-label='Pilih'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
+                  <option value='P'>Wanita</option>
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className='mb-3'>
+              <Form.Label column sm={2} className='text-end'>
+                Status Pernikahan
+              </Form.Label>
+              <Col>
+                <Form.Select
+                  aria-label='Pilih'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
+                  <option value='P'>Wanita</option>
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className='mb-3'>
+              <Form.Label column sm={2} className='text-end'>
+                Provinsi
+              </Form.Label>
+              <Col>
+                <Form.Select
+                  aria-label='Pilih'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Pilih</option>
+                  <option value='L'>Pria</option>
+                  <option value='P'>Wanita</option>
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className='mb-3'>
+              <Form.Label column sm={2} className='text-end'>
                 Klinik
               </Form.Label>
               <Col>
@@ -112,7 +232,7 @@ const AddPatient = () => {
               </Col>
             </Form.Group>
             <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+              <Form.Label column sm={2} className='text-end'>
                 Cara Bayar
               </Form.Label>
               <Col>
@@ -125,7 +245,7 @@ const AddPatient = () => {
               </Col>
             </Form.Group>
             <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={2}>
+              <Form.Label column sm={2} className='text-end'>
                 Kunjungan
               </Form.Label>
               <Col>
