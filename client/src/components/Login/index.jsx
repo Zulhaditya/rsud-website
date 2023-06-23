@@ -68,7 +68,10 @@ const Login = () => {
               />
             </div>
             {error && <div className={styles.error_msg}>{error}</div>}
-            <button type='submit' className={styles.submit_btn}>
+            <button
+              type='submit'
+              className='w-full mt-[7px] p-2 rounded-lg text-white bg-[#002b5b] font-poppins font-semibold'
+            >
               Masuk
             </button>
           </form>
