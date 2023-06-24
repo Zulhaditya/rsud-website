@@ -37,119 +37,126 @@ const AddPatient = () => {
   }
 
   return (
-    <Container className='mt-3'>
-      <Row className='justify-content-md-center'>
+    <div className='container mt-3'>
+      <div>
         <h2>Data Pribadi</h2>
         <p>Lengkapi data pribadi pasien</p>
-        <Col md={8} className='mb-5'>
-          <Form onSubmit={savePatient}>
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Jenis Pasien
-              </Form.Label>
-              <Col>
-                <Form.Select
-                  aria-label='Pilih'
-                  // value={gender}
+        <div className='mb-5 flex justify-center'>
+          <form onSubmit={savePatient}>
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Jenis Pasien</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={jenis}
                   // onChange={(e) => setGender(e.target.value)}
                 >
-                  <option>Pilih</option>
+                  <option selected>Pilih</option>
                   <option value='Jenis-1'>Jenis 1</option>
                   <option value='Jenis-2'>Jenis 2</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                No RM
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>No RM</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Masukkan no rm'
                   value={rm}
                   onChange={(e) => setRm(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                NIK
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>NIK</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Masukkan NIK'
                   value={nik}
                   onChange={(e) => setNik(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Nama
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Nama</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Masukkan nama'
                   value={nama}
                   onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Gender
-              </Form.Label>
-              <Col>
-                <Form.Select
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Gender</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 >
-                  <option>Pilih</option>
+                  <option selected>Pilih</option>
                   <option value='L'>Pria</option>
                   <option value='P'>Wanita</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Tempat Lahir
-              </Form.Label>
-              <Col sm={4}>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-52 px-[15px] mr-1'>
+                <h2>Tempat Lahir</h2>
+              </div>
+              <div className='w-64'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Masukkan tempat lahir'
-                  // value={klinik}
-                  // onChange={(e) => setKlinik(e.target.value)}
+                  // value={}
+                  // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-              <Form.Label column sm={2} className='text-end g-0'>
-                Tanggal Lahir
-              </Form.Label>
-              <Col>
-                <Form.Control
+              </div>
+              <div className='text-end px-3 w-1/4'>
+                <h2>Tanggal Lahir</h2>
+              </div>
+              <div className='w-1/4'>
+                <input
                   type='date'
-                  // value={klinik}
-                  // onChange={(e) => setKlinik(e.target.value)}
+                  className='form-input'
+                  // value={}
+                  // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Agama
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Agama</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='Islam'>Islam</option>
@@ -158,18 +165,19 @@ const AddPatient = () => {
                   <option value='Hindu'>Hindu</option>
                   <option value='Buddha'>Buddha</option>
                   <option value='Khonghucu'>Khonghucu</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Pendidikan
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Pendidikan</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='SD'>SD</option>
@@ -177,181 +185,194 @@ const AddPatient = () => {
                   <option value='SLTA'>SMA Sederajat</option>
                   <option value='D3'>D3</option>
                   <option value='S1'>S1</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Pekerjaan
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Pekerjaan</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='PNS'>PNS</option>
                   <option value='Wiraswasta'>Wiraswasta</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Golongan Darah
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Golongan Darah</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='A'>A</option>
                   <option value='B'>B</option>
-                  <option value='O'>O</option>
                   <option value='AB'>AB</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                  <option value='O'>O</option>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Status Pernikahan
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Status Pernikahan</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='Menikah'>Menikah</option>
                   <option value='Belum Menikah'>Belum Menikah</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Provinsi
-              </Form.Label>
-              <Col>
-                <Form.Select
-                  aria-label='Pilih'
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Provinsi</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
-                  <option value='L'>Pria</option>
-                  <option value='P'>Wanita</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                  <option value='Kepulauan Riau'>Kepulauan Riau</option>
+                  <option value='Jakarta'>DKI Jakarta</option>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Kabupaten/Kota
-              </Form.Label>
-              <Col sm={4}>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-52 px-[15px] mr-1'>
+                <h2>Kabupaten/Kota</h2>
+              </div>
+              <div className='w-64'>
+                <input
                   type='text'
-                  placeholder='Kabupaten/Kota'
-                  // value={klinik}
-                  // onChange={(e) => setKlinik(e.target.value)}
+                  className='form-input'
+                  placeholder='Kabupaten/kota'
+                  // value={}
+                  // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-              <Form.Label column sm={2} className='text-end'>
-                Kecamatan
-              </Form.Label>
-              <Col>
-                <Form.Control
+              </div>
+              <div className='text-end px-3 w-1/4'>
+                <h2>Kecamatan</h2>
+              </div>
+              <div className='w-1/4'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Kecamatan'
-                  // value={klinik}
-                  // onChange={(e) => setKlinik(e.target.value)}
+                  // value={}
+                  // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Kelurahan
-              </Form.Label>
-              <Col sm={4}>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-52 px-[15px] mr-1'>
+                <h2>Kelurahan</h2>
+              </div>
+              <div className='w-64'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Kelurahan'
-                  // value={klinik}
-                  // onChange={(e) => setKlinik(e.target.value)}
+                  // value={}
+                  // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-              <Form.Label column sm={2} className='text-end'>
-                Jalan/Dusun
-              </Form.Label>
-              <Col>
-                <Form.Control
+              </div>
+              <div className='text-end px-3 w-1/4'>
+                <h2>Jalan/dusun</h2>
+              </div>
+              <div className='w-1/4'>
+                <input
                   type='text'
-                  placeholder='Jalan'
-                  // value={klinik}
-                  // onChange={(e) => setKlinik(e.target.value)}
+                  className='form-input'
+                  placeholder='Jalan/dusun'
+                  // value={}
+                  // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Alamat Domisili
-              </Form.Label>
-              <Col>
-                <Form.Control
-                  as='textarea'
+            <div className='flex mb-3'>
+              <div className='text-end w-1/4 px-3 py-[12px]'>
+                <h2>Alamat Domisili</h2>
+              </div>
+              <div className='w-3/4'>
+                <textarea
+                  className='form-input'
                   placeholder='Masukkan alamat domisili'
                   style={{ height: '130px' }}
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                No Telp
-              </Form.Label>
-              <Col>
-                <Form.Control
-                  type='text'
-                  placeholder='Masukkan no telp'
                   // value={nama}
                   // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Suku
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>No Telp</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='text'
+                  className='form-input'
+                  placeholder='Masukkan nomor telp'
+                  // value={nama}
+                  // onChange={(e) => setNama(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Suku</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
+                  type='text'
+                  className='form-input'
                   placeholder='Masukkan suku'
                   // value={nama}
                   // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row}>
-              <Form.Label column sm={3} className='text-end'>
-                Bahasa
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Bahasa</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Masukkan bahasa'
                   // value={nama}
                   // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
+
             {/* <Form.Group as={Row} className='mb-3'>
               <Form.Label column sm={2} className='text-end'>
                 Klinik
@@ -391,142 +412,149 @@ const AddPatient = () => {
                 />
               </Col>
             </Form.Group> */}
-          </Form>
-        </Col>
-        <Row className='justify-content-md-center mb-5'>
-          <h2>Data Penanggung Jawab</h2>
-          <p>Lengkapi data penanggung jawab</p>
-          <Col md={8}>
-            <Form.Group as={Row}>
-              <Form.Label column sm={3} className='text-end'>
-                Nama
-              </Form.Label>
-              <Col>
-                <Form.Control
-                  type='text'
-                  placeholder='Masukkan nama penanggung jawab'
-                  value={nama}
-                  onChange={(e) => setNama(e.target.value)}
-                />
-              </Col>
-            </Form.Group>
-          </Col>
-        </Row>
 
-        <Row className='justify-content-md-center mb-5'>
-          <h2>Data Kunjungan</h2>
-          <p>Lengkapi data kunjungan</p>
-          <Col md={8}>
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Tanggal
-              </Form.Label>
-              <Col>
-                <Form.Control
-                  type='date'
+            <div className='absolute left-3'>
+              <h2>Data Penanggung Jawab</h2>
+              <p>Lengkapi data penanggung jawab</p>
+            </div>
+
+            <div className='flex justify-center items-center mt-20'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Nama</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
+                  type='text'
+                  className='form-input'
+                  placeholder='Masukkan nama'
                   // value={nama}
                   // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Klinik
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='absolute left-3'>
+              <h2>Data Kunjungan</h2>
+              <p>Lengkapi data kunjungan</p>
+            </div>
+
+            <div className='flex justify-center items-center mt-20 mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Tanggal</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
+                  type='date'
+                  className='form-input'
+                  // value={nama}
+                  // onChange={(e) => setNama(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Klinik</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='Penyakit Dalam'>Penyakit Dalam</option>
                   <option value='Paru'>Paru</option>
                   <option value='Gigi'>Gigi</option>
                   <option value='Gigi'>Mata</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Dokter
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Dokter</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='Zulhaditya Sp.Pd'>Zulhaditya Sp.Pd.</option>
                   <option value='Inayah Sp.Pd'>Inayah Sp.Pd</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Jadwal
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Jadwal</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='date'
+                  className='form-input'
                   // value={nama}
                   // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Cara Masuk
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Cara Masuk</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='Online'>Online</option>
                   <option value='Offline'>Offline</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row} className='mb-3'>
-              <Form.Label column sm={3} className='text-end'>
-                Jaminan
-              </Form.Label>
-              <Col>
-                <Form.Select
-                // value={gender}
-                // onChange={(e) => setGender(e.target.value)}
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>Jaminan</h2>
+              </div>
+              <div className='w-3/4'>
+                <select
+                  class='form-select'
+                  // value={}
+                  // onChange={(e) => setGender(e.target.value)}
                 >
                   <option>Pilih</option>
                   <option value='Umum'>Umum</option>
                   <option value='Jamkesos'>Jamkesos</option>
                   <option value='Jamkesmas'>Jamkesmas</option>
                   <option value='Jasa Raharja'>Jasa Raharja</option>
-                </Form.Select>
-              </Col>
-            </Form.Group>
+                </select>
+              </div>
+            </div>
 
-            <Form.Group as={Row}>
-              <Form.Label column sm={3} className='text-end'>
-                No Asuransi
-              </Form.Label>
-              <Col>
-                <Form.Control
+            <div className='flex justify-center items-center mb-3'>
+              <div className='text-end w-1/4 px-3'>
+                <h2>No Asuransi</h2>
+              </div>
+              <div className='w-3/4'>
+                <input
                   type='text'
+                  className='form-input'
                   placeholder='Masukkan no asuransi'
                   // value={nama}
                   // onChange={(e) => setNama(e.target.value)}
                 />
-              </Col>
-            </Form.Group>
-          </Col>
-        </Row>
-      </Row>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
       <div className='d-grid d-md-flex justify-content-md-end mt-2'>
         <Form.Group>
           <Button variant='primary' type='submit'>
@@ -534,7 +562,7 @@ const AddPatient = () => {
           </Button>
         </Form.Group>
       </div>
-    </Container>
+    </div>
   )
 }
 
