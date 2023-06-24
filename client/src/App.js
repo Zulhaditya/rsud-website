@@ -1,15 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
-import Login from './components/Login'
-import Input from './components/Input'
-import Edit from './components/Edit'
-import TablePatient from './components/Table'
+import Login from './pages/Login'
+import Input from './pages/InputPatient'
+import Edit from './pages/EditPatient'
+import Main from './pages/Main'
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/main' element={<TablePatient />} />
+        <Route path='/main' element={<Main />} />
         <Route path='/input' element={<Input />} />
         <Route path='edit/:id' element={<Edit />} />
       </Routes>

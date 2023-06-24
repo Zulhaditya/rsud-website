@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import styles from './styles.module.css'
-import logo from '../../assets/hospital.png'
+import logo from '../assets/hospital.png'
 import { FaUnlock, FaUserAlt } from 'react-icons/fa'
 
 const Login = () => {
@@ -30,16 +29,17 @@ const Login = () => {
   }
 
   return (
-    <div className={styles.login_container}>
-      <div className={styles.circle_left}></div>
-      <div className={styles.login_form_container}>
-        <div className={styles.left}>
-          <img src={logo} alt='hospital' className={styles.logo} />
-          <h1 className={styles.title}>Halaman Masuk</h1>
-          <p className={styles.title_secondary}>Selamat Datang Kembali</p>
-          <form className={styles.form_container} onSubmit={handleSubmit}>
-            <div className={styles.form_input}>
-              <span className={styles.icon}>
+    <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-b from-[#002b5b] via-[#002b5b] to-[#2f495f]'>
+      <div className='w-[500px] h-[520px] flex'>
+        <div className='flex flex-[2_2_0%] flex-col items-center justify-center bg-white rounded-[30px]'>
+          <img src={logo} alt='hospital' className='w-[200px] h-[150px] mb-4' />
+          <h1 className='text-2xl font-bold mb-1'>Halaman Masuk</h1>
+          <p className='text-[14px] text-slate-500 mb-10'>
+            Selamat Datang Kembali
+          </p>
+          <form className='flex flex-col items-center' onSubmit={handleSubmit}>
+            <div className='mb-2 relative flex items-center justify-center'>
+              <span className='absolute left-[17px] top-0 text-[20px] text-blue-950 h-full flex items-center justify-center'>
                 {' '}
                 <FaUserAlt aria-hidden='true' />{' '}
               </span>
@@ -49,11 +49,11 @@ const Login = () => {
                 onChange={handleChange}
                 value={data.username}
                 required
-                className={styles.input}
+                className='block box-border w-[370px] bg-transparent border-[1.2px] text-sm mx-0 my-0.5 pl-[50px] pr-[15px] py-[15px] rounded-[10px] border-[#002b5b] outline-none'
               />
             </div>
-            <div className={styles.form_input}>
-              <span className={styles.icon}>
+            <div className='mb-2 relative flex items-center justify-center'>
+              <span className='absolute left-[17px] top-0 text-[20px] text-blue-950 h-full flex items-center justify-center'>
                 {' '}
                 <FaUnlock aria-hidden='true' />{' '}
               </span>
@@ -64,10 +64,14 @@ const Login = () => {
                 onChange={handleChange}
                 value={data.password}
                 required
-                className={styles.input}
+                className='block box-border w-[370px] bg-transparent border-[1.2px] text-sm mx-0 my-0.5 pl-[50px] pr-[15px] py-[15px] rounded-[10px] border-[#002b5b] outline-none'
               />
             </div>
-            {error && <div className={styles.error_msg}>{error}</div>}
+            {error && (
+              <div className='w-full text-sm bg-[#f34646] text-[white] text-center mx-0 my-[5px] p-[5px] rounded-[5px]'>
+                {error}
+              </div>
+            )}
             <button
               type='submit'
               className='w-full mt-[7px] p-2 rounded-lg text-white bg-[#002b5b] font-poppins font-semibold'

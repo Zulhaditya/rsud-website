@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 import { MdEdit } from 'react-icons/md'
 import { AiOutlineFile } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
+import Sidebar from '../components/Sidebar'
 
-const TablePatient = () => {
+const Main = () => {
   const [patients, setPatient] = useState([])
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const TablePatient = () => {
 
   return (
     <div className='container font-poppins bg-[#EEF3F7] min-w-full'>
+      <Sidebar />
       <div className='h-screen'>
         <div className='mb-7 pt-10 px-10'>
           <h1 className='float-left text-xl font-semibold border-b-2 border-[#159895]'>
@@ -138,4 +140,4 @@ const TablePatient = () => {
   )
 }
 
-export default TablePatient
+export default Main
