@@ -9,4 +9,7 @@
   .form-input {
     @apply border border-gray-300 text-gray-900 rounded-lg block w-full p-2;
   }
+  .star {
+    @apply after:content-['*'] after:text-pink-500;
+  }
 }

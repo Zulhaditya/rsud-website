@@ -82,7 +82,7 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className='px-10'>
+        <div className='px-9'>
           <table className='w-full text-center bg-white'>
             <thead className='bg-blue-900 text-white'>
               <tr>
