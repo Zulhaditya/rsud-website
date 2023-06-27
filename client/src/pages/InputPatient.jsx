@@ -493,8 +493,26 @@ const AddPatient = () => {
                 onChange={(e) => setDokterKunjungan(e.target.value)}
               >
                 <option>Pilih</option>
-                <option value='Zulhaditya Sp.Pd'>Zulhaditya Sp.Pd.</option>
-                <option value='Inayah Sp.Pd'>Inayah Sp.Pd</option>
+                <option value='dr. Ardy, Sp.PD'>dr. Ardy, Sp.PD</option>
+                <option value='dr. Hady, Sp.PD'>dr. Hady, Sp.PD</option>
+                <option value='dr. Daru Jaka Sulistya, Sp.PDs'>
+                  dr. Daru Jaka Sulistya, Sp.PD
+                </option>
+                <option value='dr. Ade Firman Saroso, Sp.KK'>
+                  dr. Ade Firman Saroso, Sp.KK
+                </option>
+                <option value='drg. Selli Reviona'>drg. Selli Reviona</option>
+                <option value='drg. Ufo Pramigi'>drg. Ufo Pramigi</option>
+                <option value='dr. Matahari Arsy Harum Permata, Sp.KK'>
+                  dr. Matahari Arsy Harum Permata, Sp.KK
+                </option>
+                <option value='dr. Marisa, Sp.M'>dr. Marisa, Sp.M</option>
+                <option value='dr. Nurul Widiati, Sp.M'>
+                  dr. Nurul Widiati, Sp.M
+                </option>
+                <option value='dr. Bambang Herwindu, Sp.M'>
+                  dr. Bambang Herwindu, Sp.M
+                </option>
               </select>
             </div>
           </div>
