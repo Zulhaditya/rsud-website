@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import Select from 'react-select'
 import { listProvinsi } from '../data/provinsi'
 
 const AddPatient = () => {
@@ -33,8 +32,6 @@ const AddPatient = () => {
   const [dokterKunjungan, setDokterKunjungan] = useState('')
   const [jadwalKunjungan, setJadwalKunjungan] = useState('')
   const [noAsuransi, setNoAsuransi] = useState('')
-
-  const [selectedValue, setSelectedValue] = useState('')
   const [provinsi, setProvinsi] = useState('')
 
   const navigate = useNavigate()
@@ -79,37 +76,14 @@ const AddPatient = () => {
     }
   }
 
-  // useEffect(() => {
-  //   // fetch data dari api
-  //   const fetchData = async () => {
-  //     const response = await fetch(
-  //       `http://dev.farizdotid.com/api/daerahindonesia/provinsi`
-  //     )
-  //     const data = await response.json()
-  //     const dataKeys = Object.values(data)
-  //     console.log(dataKeys)
-  //     setProvinsi(dataKeys)
-  //   }
-  //   fetchData()
-  // }, [])
-
-  // const options = provinsi.map((c) => ({
-  //   value: c.id,
-  //   label: c.nama,
-  // }))
-
-  const handleSelectChange = (event) => {
-    setProvinsi(event.target.value)
-  }
-
   return (
     <div className='container font-poppins text-sm'>
-      <div className='pl-40 mt-4 mb-4'>
-        <h2 className='text-2xl'>Data Pribadi</h2>
-        <p className='text-slate-400'>Lengkapi data pribadi pasien</p>
-      </div>
       <div className='mb-5 flex justify-center'>
         <form onSubmit={savePatient}>
+          <div className='mt-4 mb-4'>
+            <h2 className='text-xl'>Data Pribadi</h2>
+            <p className='text-slate-400'>Lengkapi data pribadi pasien</p>
+          </div>
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-1/4 px-3'>
               <h2 className='star'>Jenis Pasien</h2>
@@ -319,18 +293,6 @@ const AddPatient = () => {
               <h2 className='star'>Provinsi</h2>
             </div>
             <div className='w-3/4'>
-              {/* <select
-                className='form-select'
-                value={provinsi}
-                onChange={(e) => setProvinsi(e.target.value)}
-              >
-                <option>Pilih</option>
-                <option value='Kepulauan Riau'>Kepulauan Riau</option>
-                <option value='Jakarta'>DKI Jakarta</option>
-              </select> */}
-
-              {/* <Select options={options} onChange={handleSelectChange} /> */}
-
               <select
                 className='form-select'
                 value={provinsi}
@@ -447,7 +409,7 @@ const AddPatient = () => {
             </div>
           </div>
 
-          <div className='flex justify-center items-center mb-14'>
+          <div className='flex justify-center items-center mb-5'>
             <div className='text-end w-1/4 px-3'>
               <h2 className='star'>Bahasa</h2>
             </div>
@@ -462,12 +424,12 @@ const AddPatient = () => {
             </div>
           </div>
 
-          <div className='absolute left-[160px]'>
-            <h2 className='text-2xl'>Data Penanggung Jawab</h2>
+          <div>
+            <h2 className='text-xl'>Data Penanggung Jawab</h2>
             <p className='text-slate-400'>Lengkapi data penanggung jawab</p>
           </div>
 
-          <div className='flex justify-center items-center mt-36 mb-14'>
+          <div className='flex justify-center items-center mt-4 mb-5'>
             <div className='text-end w-1/4 px-3'>
               <h2 className='star'>Nama</h2>
             </div>
@@ -482,12 +444,12 @@ const AddPatient = () => {
             </div>
           </div>
 
-          <div className='absolute left-[160px]'>
-            <h2 className='text-2xl'>Data Kunjungan</h2>
-            <p className='text-slate-400'>Lengkapi data kunjungan</p>
+          <div>
+            <h2 className='text-xl'>Data Kunjungan</h2>
+            <p className='text-slate-400'>Lengkapi data data kunjungan</p>
           </div>
 
-          <div className='flex justify-center items-center mt-36 mb-3'>
+          <div className='flex justify-center items-center mt-4 mb-3'>
             <div className='text-end w-1/4 px-3'>
               <h2 className='star'>Tanggal</h2>
             </div>

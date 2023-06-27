@@ -29,7 +29,7 @@ const Login = () => {
   }
 
   return (
-    <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-b from-[#002b5b] via-[#002b5b] to-[#2f495f]'>
+    <div className='w-full min-h-screen flex justify-center items-center bg-gradient-to-b from-[#002b5b] via-[#002b5b] to-[#2f495f] font-poppins'>
       <div className='w-[500px] h-[520px] flex'>
         <div className='flex flex-[2_2_0%] flex-col items-center justify-center bg-white rounded-[30px]'>
           <img src={logo} alt='hospital' className='w-[200px] h-[150px] mb-4' />
