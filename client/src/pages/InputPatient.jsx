@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Select from 'react-select'
+import { listProvinsi } from '../data/provinsi'
 
 const AddPatient = () => {
   const [rm, setRm] = useState('')
@@ -18,7 +20,6 @@ const AddPatient = () => {
   const [pekerjaan, setPekerjaan] = useState('')
   const [golDarah, setGolDarah] = useState('')
   const [jenis, setJenis] = useState('')
-  const [provinsi, setProvinsi] = useState('')
   const [kota, setKota] = useState('')
   const [kecamatan, setKecamatan] = useState('')
   const [kelurahan, setKelurahan] = useState('')
@@ -32,6 +33,9 @@ const AddPatient = () => {
   const [dokterKunjungan, setDokterKunjungan] = useState('')
   const [jadwalKunjungan, setJadwalKunjungan] = useState('')
   const [noAsuransi, setNoAsuransi] = useState('')
+
+  const [selectedValue, setSelectedValue] = useState('')
+  const [provinsi, setProvinsi] = useState('')
 
   const navigate = useNavigate()
 
@@ -73,6 +77,29 @@ const AddPatient = () => {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  // useEffect(() => {
+  //   // fetch data dari api
+  //   const fetchData = async () => {
+  //     const response = await fetch(
+  //       `http://dev.farizdotid.com/api/daerahindonesia/provinsi`
+  //     )
+  //     const data = await response.json()
+  //     const dataKeys = Object.values(data)
+  //     console.log(dataKeys)
+  //     setProvinsi(dataKeys)
+  //   }
+  //   fetchData()
+  // }, [])
+
+  // const options = provinsi.map((c) => ({
+  //   value: c.id,
+  //   label: c.nama,
+  // }))
+
+  const handleSelectChange = (event) => {
+    setProvinsi(event.target.value)
   }
 
   return (
@@ -292,7 +319,7 @@ const AddPatient = () => {
               <h2 className='star'>Provinsi</h2>
             </div>
             <div className='w-3/4'>
-              <select
+              {/* <select
                 className='form-select'
                 value={provinsi}
                 onChange={(e) => setProvinsi(e.target.value)}
@@ -300,6 +327,23 @@ const AddPatient = () => {
                 <option>Pilih</option>
                 <option value='Kepulauan Riau'>Kepulauan Riau</option>
                 <option value='Jakarta'>DKI Jakarta</option>
+              </select> */}
+
+              {/* <Select options={options} onChange={handleSelectChange} /> */}
+
+              <select
+                className='form-select'
+                value={provinsi}
+                onChange={(e) => setProvinsi(e.target.value)}
+              >
+                <option value='Pilih'>Pilih</option>
+                {listProvinsi.map((province) => {
+                  return (
+                    <option value={province.nama} key={province.id}>
+                      {province.nama}
+                    </option>
+                  )
+                })}
               </select>
             </div>
           </div>
