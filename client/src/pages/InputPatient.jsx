@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { listProvinsi } from '../data/provinsi'
+import Sidebar from '../components/Sidebar'
 
 const AddPatient = () => {
   const [rm, setRm] = useState('')
@@ -77,8 +78,9 @@ const AddPatient = () => {
   }
 
   return (
-    <div className='container font-poppins text-sm'>
-      <div className='mb-5 flex justify-center'>
+    <div className='font-poppins text-sm flex'>
+      <Sidebar />
+      <div className='mb-5 justify-center pt-10 mx-auto'>
         <form onSubmit={savePatient}>
           <div className='mt-4 mb-4'>
             <h2 className='text-xl'>Data Pribadi</h2>

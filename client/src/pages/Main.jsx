@@ -28,9 +28,9 @@ const Main = () => {
   }
 
   return (
-    <div className='container font-poppins bg-[#EEF3F7] min-w-full'>
+    <div className='font-poppins bg-[#EEF3F7] flex text-sm'>
       <Sidebar />
-      <div className='h-screen'>
+      <div className='flex-1 p-7'>
         <div className='mb-7 pt-10 px-10'>
           <h1 className='float-left text-xl font-semibold border-b-2 border-[#159895]'>
             Daftar Pasien
