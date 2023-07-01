@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MdEdit } from 'react-icons/md'
 import { AiOutlineFile } from 'react-icons/ai'
+import { FaUserCircle } from 'react-icons/fa'
+import { AiOutlineRight } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
 import Sidebar from '../components/Sidebar'
 
@@ -30,7 +32,23 @@ const Main = () => {
   return (
     <div className='font-poppins bg-[#EEF3F7] flex text-sm'>
       <Sidebar />
-      <div className='flex-1 p-7'>
+      <div className='flex-1 pb-7'>
+        <div className='py-3 px-10 overflow-auto bg-white'>
+          <h1 className='text-xl font-bold float-left text-[#002B5B]'>
+            RSUD WONOSARI
+          </h1>
+          <div className='float-right py-1'>
+            <h2 className='float-left mr-2 py-0.5 font-semibold text-[#002B5B]'>
+              Zulhaditya
+            </h2>
+            <FaUserCircle className='text-xl text-slate-300' />
+          </div>
+        </div>
+        <div className='px-10 py-2 bg-[#F9FBFC] font-semibold flex text-[#002B5B] gap-1 shadow-sm'>
+          <AiOutlineRight className='text-lg' />
+          <h1>Pendaftaran</h1>
+        </div>
+
         <div className='mb-7 pt-10 px-10'>
           <h1 className='float-left text-xl font-semibold border-b-2 border-[#159895]'>
             Daftar Pasien

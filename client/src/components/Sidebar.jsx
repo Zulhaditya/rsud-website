@@ -14,7 +14,7 @@ const Sidebar = () => {
       <div
         className={`${
           open ? 'w-56' : 'w-24 '
-        } bg-blue-900 px-3 pt-8 relative duration-300`}
+        } bg-[#073870] px-3 pt-8 relative duration-300`}
       >
         <AiFillRightCircle
           className={`absolute cursor-pointer -right-3 top-9
@@ -43,12 +43,6 @@ const Sidebar = () => {
             <BsPeopleFill />
             <Link to={'/input'} className={!open ? 'hidden' : undefined}>
               <h2>Pendaftaran</h2>
-            </Link>
-          </div>
-          <div className='flex gap-2 mt-2 hover:text-white hover:font-semibold'>
-            <BiTime />
-            <Link to={'/main'} className={!open ? 'hidden' : undefined}>
-              <h2>Batalkan Kunjungan</h2>
             </Link>
           </div>
         </div>

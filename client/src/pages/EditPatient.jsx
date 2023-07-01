@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import { listProvinsi } from '../data/provinsi'
 import Sidebar from '../components/Sidebar'
+import { FaUserCircle } from 'react-icons/fa'
+import { AiOutlineRight } from 'react-icons/ai'
 
 const EditPatient = () => {
   const [rm, setRm] = useState('')
@@ -118,8 +120,31 @@ const EditPatient = () => {
   return (
     <div className='font-poppins text-sm flex'>
       <Sidebar />
-      <div className='mb-5 justify-center pt-10 mx-auto'>
-        <form onSubmit={updatePatient}>
+      <div className='pb-5 justify-center w-full bg-[#EEF3F7]'>
+        <div className='py-3 px-10 overflow-auto bg-white'>
+          <h1 className='text-xl font-bold float-left text-[#002B5B]'>
+            RSUD WONOSARI
+          </h1>
+          <div className='float-right py-1'>
+            <h2 className='float-left mr-2 py-0.5 font-semibold text-[#002B5B]'>
+              Zulhaditya
+            </h2>
+            <FaUserCircle className='text-xl text-slate-300' />
+          </div>
+        </div>
+        <div className='px-10 py-2 bg-[#F9FBFC] font-semibold flex text-[#002B5B] gap-1 shadow-sm'>
+          <AiOutlineRight className='text-lg text-[#A8A8A8]' />
+          <Link to='/main'>
+            <h1 className='text-[#A8A8A8] font-medium'>Pendaftaran</h1>
+          </Link>
+          <AiOutlineRight className='text-lg' />
+          <h1>Edit Pasien</h1>
+        </div>
+
+        <form
+          onSubmit={updatePatient}
+          className='w-3/4 mx-auto p-8 pt-2 mt-10 rounded-lg bg-white'
+        >
           <div className='mt-4 mb-4'>
             <h2 className='text-xl'>Data Pribadi</h2>
             <p className='text-slate-400'>Lengkapi data pribadi pasien</p>
@@ -209,8 +234,8 @@ const EditPatient = () => {
           </div>
 
           <div className='flex justify-center items-center mb-3'>
-            <div className='text-end w-52 px-[15px] mr-1'>
-              <h2 className='star'>Tempat Lahir</h2>
+            <div className='text-end w-52'>
+              <h2 className='star mr-4'>Tempat Lahir</h2>
             </div>
             <div className='w-64'>
               <input
@@ -350,8 +375,8 @@ const EditPatient = () => {
           </div>
 
           <div className='flex justify-center items-center mb-3'>
-            <div className='text-end w-52 px-[15px] mr-1'>
-              <h2 className='star'>Kabupaten/Kota</h2>
+            <div className='text-end w-52'>
+              <h2 className='star mr-4'>Kabupaten/Kota</h2>
             </div>
             <div className='w-64'>
               <input
@@ -377,8 +402,8 @@ const EditPatient = () => {
           </div>
 
           <div className='flex justify-center items-center mb-3'>
-            <div className='text-end w-52 px-[15px] mr-1'>
-              <h2 className='star'>Kelurahan</h2>
+            <div className='text-end w-52'>
+              <h2 className='star mr-4'>Kelurahan</h2>
             </div>
             <div className='w-64'>
               <input
