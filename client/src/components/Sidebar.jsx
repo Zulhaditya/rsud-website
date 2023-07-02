@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { BsPeopleFill } from 'react-icons/bs'
-import { BiTime } from 'react-icons/bi'
 import { AiFillRightCircle } from 'react-icons/ai'
 import { ImExit } from 'react-icons/im'
 import logoHospital from '../assets/logo-hospital.png'

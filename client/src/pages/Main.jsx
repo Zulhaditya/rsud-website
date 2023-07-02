@@ -10,6 +10,8 @@ import Sidebar from '../components/Sidebar'
 
 const Main = () => {
   const [patients, setPatient] = useState([])
+  const [showDelete, setShowDelete] = useState(false)
+  const handleOnClose = () => setShowDelete(false)
 
   useEffect(() => {
     getPatients()
@@ -143,10 +145,46 @@ const Main = () => {
                       <button>
                         <AiOutlineFile className='text-xl' />
                       </button>
-                      <button onClick={() => deletePatient(patient._id)}>
+                      <button onClick={() => setShowDelete(true)}>
                         <MdDeleteOutline className='text-2xl' />
                       </button>
                     </div>
+
+                    {showDelete && (
+                      <div className='fixed inset-0 bg-slate-300 bg-opacity-30 backdrop-blur[2px] flex justify-center items-center'>
+                        <div className='bg-white p-2 rounded w-[404px] h-[175px]'>
+                          <div className='flex justify-center py-1'>
+                            <p className='font-semibold text-lg'>
+                              Konfirmasi !
+                            </p>
+                          </div>
+                          <hr />
+                          <div className='flex justify-center py-3'>
+                            <p>
+                              Apakah anda yakin menghapus data pasien "
+                              {patient.nama}" ?
+                            </p>
+                          </div>
+                          <div className='flex justify-center gap-3'>
+                            <button
+                              onClick={handleOnClose}
+                              className='border-slate-600 border-1 rounded-xl font-semibold w-40 p-2 text-slate-700'
+                            >
+                              Tidak
+                            </button>
+                            <button
+                              onClick={() => {
+                                deletePatient(patient._id)
+                                handleOnClose()
+                              }}
+                              className='rounded-xl font-semibold w-40 p-2 bg-red-600 text-white'
+                            >
+                              Ya, Hapus
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </td>
                 </tr>
               ))}
