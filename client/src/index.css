@@ -12,4 +12,7 @@
   .star {
     @apply after:content-['*'] after:text-pink-500;
   }
+  .disableForm {
+    @apply disabled:bg-slate-50 disabled:border-slate-200 disabled:shadow-none;
+  }
 }

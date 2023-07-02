@@ -2,10 +2,10 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MdEdit } from 'react-icons/md'
-import { AiOutlineFile } from 'react-icons/ai'
+import { HiViewList } from 'react-icons/hi'
 import { FaUserCircle } from 'react-icons/fa'
 import { AiOutlineRight } from 'react-icons/ai'
-import { MdDeleteOutline } from 'react-icons/md'
+import { RiDeleteBack2Fill } from 'react-icons/ri'
 import Sidebar from '../components/Sidebar'
 
 const Main = () => {
@@ -140,13 +140,13 @@ const Main = () => {
                   <td className='px-3'>
                     <div className='grid grid-cols-3 gap-2'>
                       <Link to={`/edit/${patient._id}`}>
-                        <MdEdit className='text-xl' />
+                        <MdEdit className='text-lg hover:text-slate-500' />
                       </Link>
-                      <button>
-                        <AiOutlineFile className='text-xl' />
-                      </button>
+                      <Link to={`/show/${patient._id}`}>
+                        <HiViewList className='text-lg hover:text-slate-500' />
+                      </Link>
                       <button onClick={() => setShowDelete(true)}>
-                        <MdDeleteOutline className='text-2xl' />
+                        <RiDeleteBack2Fill className='text-xl text-red-500 hover:text-red-900' />
                       </button>
                     </div>
 
