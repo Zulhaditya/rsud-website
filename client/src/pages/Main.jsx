@@ -7,21 +7,29 @@ import { FaUserCircle } from 'react-icons/fa'
 import { AiOutlineRight } from 'react-icons/ai'
 import { RiDeleteBack2Fill } from 'react-icons/ri'
 import Sidebar from '../components/Sidebar'
+import { DateRangePicker } from 'react-date-range'
 
 const Main = () => {
   const [patients, setPatient] = useState([])
+  const [allPatients, setAllPatients] = useState([])
   const [showDelete, setShowDelete] = useState(false)
   const handleOnClose = () => setShowDelete(false)
+
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
 
   useEffect(() => {
     getPatients()
   }, [])
 
+  // GET data pasien
   const getPatients = async () => {
     const response = await axios.get('http://localhost:8080/patients')
     setPatient(response.data)
+    setAllPatients(response.data)
   }
 
+  // DELETE data pasien
   const deletePatient = async (id) => {
     try {
       await axios.delete(`http://localhost:8080/patients/${id}`)
@@ -29,6 +37,27 @@ const Main = () => {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  // handle select date
+  const handleSelect = (date) => {
+    let filtered = allPatients.filter((patient) => {
+      let patientDate = new Date(patient.tglKunjungan)
+      return (
+        patientDate >= date.selection.startDate &&
+        patientDate <= date.selection.endDate
+      )
+    })
+    setStartDate(date.selection.startDate)
+    setEndDate(date.selection.endDate)
+    setPatient(filtered)
+  }
+
+  // object selection range date
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: 'selection',
   }
 
   return (
@@ -65,21 +94,16 @@ const Main = () => {
           <div className='clear-both'></div>
         </div>
         <div className='flex mb-10 px-10'>
-          <div className='mr-6 text-sm'>
-            <h2 className='mb-2.5 text-[#A8A8A8]'>Cari data sejak tanggal</h2>
-            <input
-              type='date'
-              className='border-b border-[#159895] w-48 bg-transparent'
+          <div className='mr-6'>
+            <div className='mb-3'>
+              <h2 className='text-lg'>Cari Data Pasien</h2>
+            </div>
+            <DateRangePicker
+              ranges={[selectionRange]}
+              onChange={handleSelect}
             />
           </div>
-          <div className='text-sm'>
-            <h2 className='mb-2.5 text-[#A8A8A8]'>hingga batas tanggal</h2>
-            <input
-              type='date'
-              className='border-b border-[#159895] w-48 bg-transparent'
-            />
-          </div>
-          <div className='grid grid-cols-2 gap-2 ml-16 text-sm'>
+          <div className='grid grid-cols-2 gap-2 ml-7 text-sm h-20'>
             <input
               type='text'
               placeholder='Masukkan No RM ....'
