@@ -13,11 +13,11 @@ const Main = () => {
   const [patients, setPatient] = useState([])
   const [allPatients, setAllPatients] = useState([])
   const [showDelete, setShowDelete] = useState(false)
-  const handleOnClose = () => setShowDelete(false)
-
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
+  const [searchPatients, setSearchPatients] = useState('')
 
+  const handleOnClose = () => setShowDelete(false)
   useEffect(() => {
     getPatients()
   }, [])
@@ -96,33 +96,26 @@ const Main = () => {
         <div className='flex mb-10 px-10'>
           <div className='mr-6'>
             <div className='mb-3'>
-              <h2 className='text-lg'>Cari Data Pasien</h2>
+              <h2 className='font-semibold text-lg'>
+                Tentukan batas kunjungan
+              </h2>
+              <p className='text-slate-500'>Berdasarkan waktu kunjungan.</p>
             </div>
             <DateRangePicker
               ranges={[selectionRange]}
               onChange={handleSelect}
             />
           </div>
-          <div className='grid grid-cols-2 gap-2 ml-7 text-sm h-20'>
+          <div className='ml-7 text-sm'>
+            <div className='mb-3'>
+              <h2 className='font-semibold text-lg'>Cari Data Pasien</h2>
+              <p className='text-slate-500'>Berdasarkan Nama dan Klinik.</p>
+            </div>
             <input
               type='text'
-              placeholder='Masukkan No RM ....'
-              className='px-3.5 py-1 rounded-lg'
-            />
-            <input
-              type='text'
-              placeholder='Masukkan NIK ....'
-              className='px-3.5 py-1 rounded-lg'
-            />
-            <input
-              type='text'
-              placeholder='Masukkan Nama ....'
-              className='px-3.5 py-1 rounded-lg'
-            />
-            <input
-              type='text'
-              placeholder='Masukkan Klinik ....'
-              className='px-3.5 py-1 rounded-lg'
+              placeholder='Cari ....'
+              className='px-3.5 py-1.5 rounded-lg w-full'
+              onChange={(e) => setSearchPatients(e.target.value)}
             />
           </div>
         </div>
@@ -146,72 +139,79 @@ const Main = () => {
               </tr>
             </thead>
             <tbody>
-              {patients.map((patient, index) => (
-                <tr key={patient._id} className='border-b-1 shadow-sm'>
-                  <th
-                    scope='row whitespace-nowrap'
-                    className='px-4 py-3 font-medium'
-                  >
-                    {index + 1}
-                  </th>
-                  <td>{patient.rm}</td>
-                  <td className='px-3'>{patient.nik}</td>
-                  <td>{patient.nama}</td>
-                  <td>{patient.gender}</td>
-                  <td className='px-3'>{patient.jaminan}</td>
-                  <td className='px-3'>{patient.klinik}</td>
-                  <td>{patient.kunjungan}</td>
-                  <td className='px-3'>
-                    <div className='grid grid-cols-3 gap-2'>
-                      <Link to={`/edit/${patient._id}`}>
-                        <MdEdit className='text-lg hover:text-slate-500' />
-                      </Link>
-                      <Link to={`/show/${patient._id}`}>
-                        <HiViewList className='text-lg hover:text-slate-500' />
-                      </Link>
-                      <button onClick={() => setShowDelete(true)}>
-                        <RiDeleteBack2Fill className='text-xl text-red-500 hover:text-red-900' />
-                      </button>
-                    </div>
+              {patients
+                .filter((patient) => {
+                  return searchPatients.toLowerCase() === ''
+                    ? patient
+                    : patient.nama.toLowerCase().includes(searchPatients) ||
+                        patient.klinik.toLowerCase().includes(searchPatients)
+                })
+                .map((patient, index) => (
+                  <tr key={patient._id} className='border-b-1 shadow-sm'>
+                    <th
+                      scope='row whitespace-nowrap'
+                      className='px-4 py-3 font-medium'
+                    >
+                      {index + 1}
+                    </th>
+                    <td>{patient.rm}</td>
+                    <td className='px-3'>{patient.nik}</td>
+                    <td>{patient.nama}</td>
+                    <td>{patient.gender}</td>
+                    <td className='px-3'>{patient.jaminan}</td>
+                    <td className='px-3'>{patient.klinik}</td>
+                    <td>{patient.kunjungan}</td>
+                    <td className='px-3'>
+                      <div className='grid grid-cols-3 gap-2'>
+                        <Link to={`/edit/${patient._id}`}>
+                          <MdEdit className='text-lg hover:text-slate-500' />
+                        </Link>
+                        <Link to={`/show/${patient._id}`}>
+                          <HiViewList className='text-lg hover:text-slate-500' />
+                        </Link>
+                        <button onClick={() => setShowDelete(true)}>
+                          <RiDeleteBack2Fill className='text-xl text-red-500 hover:text-red-900' />
+                        </button>
+                      </div>
 
-                    {showDelete && (
-                      <div className='fixed inset-0 bg-slate-300 bg-opacity-30 backdrop-blur[2px] flex justify-center items-center'>
-                        <div className='bg-white p-2 rounded w-[404px] h-[175px]'>
-                          <div className='flex justify-center py-1'>
-                            <p className='font-semibold text-lg'>
-                              Konfirmasi !
-                            </p>
-                          </div>
-                          <hr />
-                          <div className='flex justify-center py-3'>
-                            <p>
-                              Apakah anda yakin menghapus data pasien "
-                              {patient.nama}" ?
-                            </p>
-                          </div>
-                          <div className='flex justify-center gap-3'>
-                            <button
-                              onClick={handleOnClose}
-                              className='border-slate-600 border-1 rounded-xl font-semibold w-40 p-2 text-slate-700'
-                            >
-                              Tidak
-                            </button>
-                            <button
-                              onClick={() => {
-                                deletePatient(patient._id)
-                                handleOnClose()
-                              }}
-                              className='rounded-xl font-semibold w-40 p-2 bg-red-600 text-white'
-                            >
-                              Ya, Hapus
-                            </button>
+                      {showDelete && (
+                        <div className='fixed inset-0 bg-slate-300 bg-opacity-30 backdrop-blur[2px] flex justify-center items-center'>
+                          <div className='bg-white p-2 rounded w-[404px] h-[175px]'>
+                            <div className='flex justify-center py-1'>
+                              <p className='font-semibold text-lg'>
+                                Konfirmasi !
+                              </p>
+                            </div>
+                            <hr />
+                            <div className='flex justify-center py-3'>
+                              <p>
+                                Apakah anda yakin menghapus data pasien "
+                                {patient.nama}" ?
+                              </p>
+                            </div>
+                            <div className='flex justify-center gap-3'>
+                              <button
+                                onClick={handleOnClose}
+                                className='border-slate-600 border-1 rounded-xl font-semibold w-40 p-2 text-slate-700'
+                              >
+                                Tidak
+                              </button>
+                              <button
+                                onClick={() => {
+                                  deletePatient(patient._id)
+                                  handleOnClose()
+                                }}
+                                className='rounded-xl font-semibold w-40 p-2 bg-red-600 text-white'
+                              >
+                                Ya, Hapus
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </td>
-                </tr>
-              ))}
+                      )}
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
