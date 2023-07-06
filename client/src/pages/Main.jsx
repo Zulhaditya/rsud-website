@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { MdEdit } from 'react-icons/md'
 import { HiViewList } from 'react-icons/hi'
@@ -13,13 +13,19 @@ const Main = () => {
   const [patients, setPatient] = useState([])
   const [allPatients, setAllPatients] = useState([])
   const [showDelete, setShowDelete] = useState(false)
+  const [openDate, setOpenDate] = useState(false)
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [searchPatients, setSearchPatients] = useState('')
 
   const handleOnClose = () => setShowDelete(false)
+
+  const refOne = useRef(null)
+
   useEffect(() => {
     getPatients()
+
+    document.addEventListener('click', hideOnClickOutside, true)
   }, [])
 
   // GET data pasien
@@ -58,6 +64,13 @@ const Main = () => {
     startDate: startDate,
     endDate: endDate,
     key: 'selection',
+  }
+
+  // hide date on click
+  const hideOnClickOutside = (e) => {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setOpenDate(false)
+    }
   }
 
   return (
@@ -101,10 +114,20 @@ const Main = () => {
               </h2>
               <p className='text-slate-500'>Berdasarkan waktu kunjungan.</p>
             </div>
-            <DateRangePicker
-              ranges={[selectionRange]}
-              onChange={handleSelect}
+            <input
+              readOnly
+              placeholder='Pilih tanggal'
+              onClick={() => setOpenDate((openDate) => !openDate)}
+              className='px-3.5 py-1.5 rounded-lg mb-3 cursor-pointer'
             />
+            <div ref={refOne}>
+              {openDate && (
+                <DateRangePicker
+                  ranges={[selectionRange]}
+                  onChange={handleSelect}
+                />
+              )}
+            </div>
           </div>
           <div className='ml-7 text-sm'>
             <div className='mb-3'>
