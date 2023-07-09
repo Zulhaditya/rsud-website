@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 module.exports = () => {
   const connectionParams = {
+    dbName: 'rsud',
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }

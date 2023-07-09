@@ -16,10 +16,10 @@ const connectionParams = {
   useUnifiedTopology: true,
 }
 
-mongoose.connect(process.env.DB, connectionParams)
-const db = mongoose.connection
-db.on('error', (error) => console.log(error))
-db.once('open', () => console.log('Berhasil terhubung ke database!'))
+mongoose
+  .connect(process.env.DB, connectionParams)
+  .then(() => console.log('Berhasil terhubung ke database!'))
+  .catch((error) => console.log('Error connecting to database:', error))
 
 // middleware
 app.use(cors())
