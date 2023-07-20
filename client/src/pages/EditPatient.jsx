@@ -45,7 +45,9 @@ const EditPatient = () => {
   }, [])
 
   const getPatientById = async () => {
-    const response = await axios.get(`http://localhost:8080/patients/${id}`)
+    const response = await axios.get(
+      `https://hospital.cyclic.app/patients/${id}`
+    )
     setRm(response.data.rm)
     setNik(response.data.nik)
     setNama(response.data.nama)
@@ -80,7 +82,7 @@ const EditPatient = () => {
   const updatePatient = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:8080/patients/${id}`, {
+      await axios.patch(`https://hospital.cyclic.app/patients/${id}`, {
         rm,
         nik,
         nama,

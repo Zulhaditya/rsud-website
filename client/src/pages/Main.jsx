@@ -38,7 +38,7 @@ const Main = () => {
   // GET data pasien
   const getPatients = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/patients')
+      const response = await axios.get('https://hospital.cyclic.app/patients')
       setAllPatients(response.data)
 
       const filteredPatients = response.data.filter(
@@ -58,7 +58,7 @@ const Main = () => {
   // DELETE data pasien
   const deletePatient = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/patients/${id}`)
+      await axios.delete(`https://hospital.cyclic.app/patients/${id}`)
       getPatients()
     } catch (error) {
       console.log(error)

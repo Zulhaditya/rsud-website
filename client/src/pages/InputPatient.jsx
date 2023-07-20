@@ -42,7 +42,7 @@ const AddPatient = () => {
   const savePatient = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:8080/patients', {
+      await axios.post('https://hospital.cyclic.app/patients', {
         rm,
         nik,
         nama,

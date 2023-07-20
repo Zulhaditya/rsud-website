@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const url = 'http://localhost:8080/admins'
+      const url = 'https://hospital.cyclic.app/admins'
       const { data: res } = await axios.post(url, data)
       window.location = '/main'
     } catch (error) {
