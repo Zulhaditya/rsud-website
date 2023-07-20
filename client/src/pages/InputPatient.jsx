@@ -197,9 +197,9 @@ const AddPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='star mr-4'>Tempat Lahir</h2>
+              <h2 className='star'>Tempat Lahir</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input'
@@ -339,9 +339,9 @@ const AddPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='star mr-4'>Kabupaten/Kota</h2>
+              <h2 className='star'>Kabupaten/Kota</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input'
@@ -366,9 +366,9 @@ const AddPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='star mr-4'>Kelurahan</h2>
+              <h2 className='star'>Kelurahan</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input'

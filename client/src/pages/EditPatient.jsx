@@ -42,7 +42,7 @@ const EditPatient = () => {
 
   useEffect(() => {
     getPatientById()
-  }, [])
+  })
 
   const getPatientById = async () => {
     const response = await axios.get(
@@ -149,7 +149,7 @@ const EditPatient = () => {
         >
           <div className='mt-4 mb-4'>
             <h2 className='text-xl'>Data Pribadi</h2>
-            <p className='text-slate-400'>Lengkapi data pribadi pasien</p>
+            <p className='text-slate-400'>Edit data pribadi pasien</p>
           </div>
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-1/4 px-3'>
@@ -237,9 +237,9 @@ const EditPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='star mr-4'>Tempat Lahir</h2>
+              <h2 className='star'>Tempat Lahir</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input'
@@ -378,9 +378,9 @@ const EditPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='star mr-4'>Kabupaten/Kota</h2>
+              <h2 className='star'>Kabupaten/Kota</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input'
@@ -405,9 +405,9 @@ const EditPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='star mr-4'>Kelurahan</h2>
+              <h2 className='star'>Kelurahan</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input'
@@ -492,7 +492,7 @@ const EditPatient = () => {
 
           <div>
             <h2 className='text-xl'>Data Penanggung Jawab</h2>
-            <p className='text-slate-400'>Lengkapi data penanggung jawab</p>
+            <p className='text-slate-400'>Edit data penanggung jawab</p>
           </div>
 
           <div className='flex justify-center items-center mt-4 mb-5'>
@@ -512,7 +512,7 @@ const EditPatient = () => {
 
           <div>
             <h2 className='text-xl'>Data Kunjungan</h2>
-            <p className='text-slate-400'>Lengkapi data data kunjungan</p>
+            <p className='text-slate-400'>Edit data data kunjungan</p>
           </div>
 
           <div className='flex justify-center items-center mt-4 mb-3'>

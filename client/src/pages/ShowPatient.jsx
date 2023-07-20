@@ -43,7 +43,7 @@ const EditPatient = () => {
 
   useEffect(() => {
     getPatientById()
-  }, [])
+  })
 
   const getPatientById = async () => {
     const response = await axios.get(
@@ -243,9 +243,9 @@ const EditPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='mr-4'>Tempat Lahir</h2>
+              <h2>Tempat Lahir</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input disableForm'
@@ -392,9 +392,9 @@ const EditPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='mr-4'>Kabupaten/Kota</h2>
+              <h2>Kabupaten/Kota</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input disableForm'
@@ -421,9 +421,9 @@ const EditPatient = () => {
 
           <div className='flex justify-center items-center mb-3'>
             <div className='text-end w-52'>
-              <h2 className='mr-4'>Kelurahan</h2>
+              <h2>Kelurahan</h2>
             </div>
-            <div className='w-64'>
+            <div className='w-64 pl-5'>
               <input
                 type='text'
                 className='form-input disableForm'
