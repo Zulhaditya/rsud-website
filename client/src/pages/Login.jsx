@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import logo from '../assets/hospital.png'
 import { FaUnlock, FaUserAlt } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [data, setData] = useState({ username: '', password: '' })
@@ -11,12 +12,14 @@ const Login = () => {
     setData({ ...data, [input.name]: input.value })
   }
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const url = 'https://hospital.cyclic.app/admins'
       const { data: res } = await axios.post(url, data)
-      window.location = '/main'
+      navigate('/main')
     } catch (error) {
       if (
         error.response &&
