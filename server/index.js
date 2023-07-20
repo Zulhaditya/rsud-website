@@ -4,22 +4,21 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import PatientRoute from './routes/PatientRoute.js'
 
-// const authRoutes = require('./routes/adminRoute.js')
 import AdminRoute from './routes/adminRoute.js'
 
 dotenv.config()
 const app = express()
-const port = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080
 
-const connectionParams = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DB)
+    console.log(`MongDB Connected: ${conn.connection.host}`)
+  } catch (error) {
+    console.log(error)
+    process.exit(1)
+  }
 }
-
-mongoose
-  .connect(process.env.DB, connectionParams)
-  .then(() => console.log('Berhasil terhubung ke database!'))
-  .catch((error) => console.log('Error connecting to database:', error))
 
 // middleware
 app.use(cors())
@@ -29,4 +28,8 @@ app.use(express.json())
 app.use(AdminRoute)
 app.use(PatientRoute)
 
-app.listen(port, () => console.log(`Server berjalan di port ${port}`))
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log('Listening for requests...')
+  })
+})
