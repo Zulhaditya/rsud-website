@@ -47,18 +47,18 @@
 To run this project, install it locally using npm:
 
 ```bash
-$ # clone this repository
-$ git clone git@github.com:Zulhaditya/contact-webapp.git
-$
-$ # install server dependencies
-$ cd server
-$ npm install
-$ npm start
-$
-$ # install client dependencies
-$ cd client
-$ npm install
-$ npm start
+# clone this repository
+git clone git@github.com:Zulhaditya/contact-webapp.git
+
+# install server dependencies
+cd server
+npm install
+npm start
+
+# install client dependencies
+cd client
+npm install
+npm start
 ```
 
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
